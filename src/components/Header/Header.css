@@ -1,0 +1,27 @@
+header{
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    margin: 0 auto;
+    position: sticky;
+    left: 0;
+    top: 0;
+    right: 0;
+    border-bottom: 1px solid gray;
+}
+
+.logo-block {
+    width: 100px;
+}
+
+.logo-block > img {
+    width: 100%;
+}
+
+.btns-wrapper {
+    width: 700px;
+    display: flex;
+    overflow-x: scroll;
+}
