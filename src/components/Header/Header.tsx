@@ -1,10 +1,11 @@
-import { useSelector } from 'react-redux'
 import logo from '../../assets/logo.png'
-import './Header.css'
-import { GenersBtn } from '../GenersBtn/GenersBtn'
 
+import { GenersBtn } from '../GenersBtn/GenersBtn'
+import { useAppSelector } from '../../store/hooks'
+
+import './Header.css'
 const Header = () => {
-    const {geners} = useSelector((state:any) => state.genersPage)
+    const {geners} = useAppSelector(state => state.genersPage)
   return (
     <header>
         <div className='logo-block'>
