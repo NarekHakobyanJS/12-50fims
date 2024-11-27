@@ -2,6 +2,7 @@ import React from 'react'
 import './Films.css'
 import { useAppSelector } from '../../store/hooks'
 import { FilmType } from '../../types/types'
+import Film from '../Film/Film'
 
 
 export const imgUrl = "https://image.tmdb.org/t/p/w500/"
@@ -9,13 +10,11 @@ export const imgUrl = "https://image.tmdb.org/t/p/w500/"
 const Films = () => {
 
   const {films} = useAppSelector(state => state.filmsPage)
-  console.log(films);
+
   return (
-    <div>{
+    <div className='films'>{
       films.map((film: FilmType) => {
-        return <div>
-          <img src={imgUrl + film.poster_path} />
-        </div>
+        return <Film key={film.id} film={film}/>
       })
       }</div>
   )

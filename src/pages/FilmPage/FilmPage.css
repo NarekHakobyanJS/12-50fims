@@ -1,0 +1,46 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+MX:wght@100..400&display=swap');
+.film-title {
+    text-align: center;
+    font-size: 40px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.film-poster {
+    position: relative;
+}
+.film-poster .background-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.film-poster .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000a8;
+}
+
+.film-info {
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #000000a1;
+    max-width: 350px;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.film-img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 8;
+}

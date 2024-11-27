@@ -1,0 +1,10 @@
+.film-block {
+    border : 1px solid gold;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
