@@ -2,7 +2,7 @@ import { GenerType } from '../../types/types'
 import './GenersBtn.css'
 
 type GenersBtnPropsType = {
-    gener: GenerType
+    gener: GenerType, 
 }
 
 export const GenersBtn = ({gener}: GenersBtnPropsType) => {

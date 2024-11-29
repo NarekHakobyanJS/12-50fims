@@ -37,7 +37,6 @@ function App() {
   
 
   const handleScroll = (e : any) => {
-    console.log(e.target.documentElement.scrollHeight, e.target.documentElement.scrollTop, window.innerHeight);
 
     if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
       setLaod(true)
@@ -60,3 +59,7 @@ function App() {
 }
 
 export default App;
+function getSearchFilms() {
+  throw new Error('Function not implemented.');
+}
+

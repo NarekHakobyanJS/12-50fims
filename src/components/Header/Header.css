@@ -27,3 +27,25 @@ header{
     display: flex;
     overflow-x: scroll;
 }
+.search {
+    position: relative;
+}
+.serach-block {
+    position: absolute;
+    right: 1px;
+    width: 300px;
+    
+    background: rgba(18, 17, 17, 0.9);
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.search > input {
+    min-width: 100px;
+    padding: 8px;
+    border: none;
+    margin-right: 10px;
+    background-color: aqua;
+    border-radius: 20px;
+}

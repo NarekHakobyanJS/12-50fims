@@ -1,0 +1,9 @@
+.result-block{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-block > img {
+    width: 85px;
+}

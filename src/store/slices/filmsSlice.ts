@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { MovieAPI } from "../../api/api";
 import { FilmType } from "../../types/types";
-import { stat } from "fs";
+
 
 export const getFilmsByPageThunk = createAsyncThunk<Array<FilmType>, number>('getFilmsByPageThunk',
     async (page: number) => {
@@ -18,15 +18,28 @@ export const getFilmByIdThunk = createAsyncThunk<FilmType, undefined | string>('
     }
 )
 
+export const getSearchFilmsThunk = createAsyncThunk<Array<FilmType>, string>('getSearchFilms',
+    async (text) => {
+        const data = await MovieAPI.getSearchFilms(text)
+    
+        return data.data.results
+    }
+)
+
 type initState = {
     films: Array<FilmType>,
     page: number,
-    film: FilmType | null
+    film: FilmType | null,
+    searchText : string,
+    searchFilms : Array<FilmType>
 }
+
 const initialState: initState = {
     films: [],
     page: 1,
-    film: null
+    film: null,
+    searchText : "",
+    searchFilms : []
 }
 
 const filmsSlice = createSlice({
@@ -35,6 +48,9 @@ const filmsSlice = createSlice({
     reducers: {
         changePage(state) {
             state.page = state.page + 1
+        },
+        changeSearchText(state, action) {
+            state.searchText = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -44,10 +60,13 @@ const filmsSlice = createSlice({
         builder.addCase(getFilmByIdThunk.fulfilled, (state, action: PayloadAction<FilmType>) => {
             state.film = action.payload
         })
+        builder.addCase(getSearchFilmsThunk.fulfilled, (state, action : PayloadAction<Array<FilmType>>) => {
+            state.searchFilms = action.payload
+        })
     }
 })
 
-export const { changePage } = filmsSlice.actions
+export const { changePage, changeSearchText } = filmsSlice.actions
 export default filmsSlice.reducer
 
 
