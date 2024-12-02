@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import { GenerType } from '../../types/types'
 import './GenersBtn.css'
 
@@ -7,6 +8,6 @@ type GenersBtnPropsType = {
 
 export const GenersBtn = ({gener}: GenersBtnPropsType) => {
     return (
-        <button className='gener-btn'>{gener.name}</button>
+        <NavLink to={`/genre/${gener.id}`} className='gener-btn'>{gener.name}</NavLink>
     )
 }

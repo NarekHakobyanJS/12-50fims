@@ -2,5 +2,9 @@
     min-width: 100px;
     margin-right: 10px;
     background-color: aqua;
+    color: black;
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

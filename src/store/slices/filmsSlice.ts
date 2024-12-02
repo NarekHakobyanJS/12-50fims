@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { MovieAPI } from "../../api/api";
 import { FilmType } from "../../types/types";
+import { AxiosResponse } from "axios";
 
 
 export const getFilmsByPageThunk = createAsyncThunk<Array<FilmType>, number>('getFilmsByPageThunk',
@@ -23,6 +24,29 @@ export const getSearchFilmsThunk = createAsyncThunk<Array<FilmType>, string>('ge
         const data = await MovieAPI.getSearchFilms(text)
     
         return data.data.results
+    }
+)
+
+export const fetchTrailer = createAsyncThunk<void, any>(
+    'fetchTrailer',
+    async ({ filmId , iframe }: any) => {
+        const res: AxiosResponse<any> = await MovieAPI.getTrailer(filmId)
+        console.log(res.data);
+        
+        res.data.results.forEach((elm: any) => {
+            if (elm.name === "Official Trailer") {
+                iframe?.current?.setAttribute(
+                    "src",
+                    `https://www.youtube.com/embed/${elm.key}`
+                );
+            } else {
+                iframe?.current?.setAttribute(
+                    "src",
+                    `https://www.youtube.com/embed/${elm.key}`
+                );
+            }
+        })
+
     }
 )
 
@@ -65,6 +89,7 @@ const filmsSlice = createSlice({
         })
     }
 })
+
 
 export const { changePage, changeSearchText } = filmsSlice.actions
 export default filmsSlice.reducer
